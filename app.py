@@ -3,9 +3,13 @@ import requests
 import string
 import random
 import re
+import logging
+import sys
+
 from twilio.rest import Client
 app = Flask(__name__)
-
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 @app.route('/')
 def index():
     return render_template('index.html',states=states,error="",fname="",lname="",email="",aadhar="",contact="",people="",frm="",to="",date="")
