@@ -1,0 +1,199 @@
+<html>
+    <head>
+<script>
+
+
+function fun(){
+var error={{error|tojson}};
+if(error!=""){
+	document.getElementById("fname").value={{fname|tojson}};
+	document.getElementById("lname").value={{lname|tojson}};
+	document.getElementById("contact").value={{contact|tojson}};
+	document.getElementById("aadhar").value={{aadhar|tojson}};
+	document.getElementById("email").value={{email|tojson}};
+	document.getElementById("people").value={{people|tojson}};
+	document.getElementById("from").value={{frm|tojson}};
+	document.getElementById("to").value={{to|tojson}};
+	document.getElementById("date").value={{date|tojson}};
+	if(error=="first name"){document.getElementById("fname").style.background="yellow";}
+	else if(error=="last name"){document.getElementById("lname").style.background="yellow";}
+	else if(error=="contact"){document.getElementById("contact").style.background="yellow";}
+	else if(error=="email"){document.getElementById("email").style.background="yellow";}
+	else if(error=="aadhar"){document.getElementById("aadhar").style.background="yellow";}
+	else if(error=="number of people"){document.getElementById("people").style.background="yellow";}
+}
+
+}
+
+function validate(){
+var today = new Date();
+var date=document.getElementById("date").value;
+
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+var s=yyyy+"-"+mm+"-"+dd;
+if(s>date){alert("Please enter a valid date"); return false;}
+else{return true;}
+}
+</script>
+
+
+
+<style>
+.container{background: linear-gradient(180deg, #00C9FF 0%, #92FE9D 100%);}
+.box{
+	width:32%;
+	height:70%;
+	margin:auto;
+	margin-top: 5%;
+	padding:35px;
+	background: white;
+	border-radius: 20px;
+	transition: padding 1s;
+}
+
+.rotate45{
+  -webkit-transform:rotate(45deg); 
+}
+
+
+.textfield {
+   position: relative;
+   padding:3%;
+   width:100%;
+    border:1px solid #e3f2fd;
+    border-radius:5px;
+    box-shadow: none;
+	vertical-align:center;
+	margin-top:10px;
+}
+.centered span {
+    position: absolute;
+    z-index: 1;
+    background-color:#fff;
+	margin-left:34%;
+    margin-top: 20px;
+    left: 15px;
+    color:#566573 ;
+    padding:0 5px;
+}
+.centered1 span {
+	position: absolute;
+    z-index: 1;
+    background-color:#fff;
+	margin-left:34%;
+    margin-top: 18px;
+    left: 15px;
+    color:#A9A9A9;
+    padding:0 5px;
+}
+.textfield:focus {
+    border:1px solid #0d47a1;
+}
+input:focus ~ span,
+input:not(:focus):valid ~ span {
+    margin-top:2px;
+}
+.textfield, span {
+	transition: ease-in-out 0.2s all;
+}
+.head{
+	display:block;
+	text-align:center;
+	width:100%;
+	font-family:Candara;
+}
+.center {
+  position: absolute;
+  margin-top:20px;
+  width:20%;
+  background: #83F52C;
+  border-radius:30px;
+  height:30px;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.error{
+	display:block;
+	text-align:center;
+	width:100%;
+	font-family:Candara;
+	color:black;
+	background:red;
+}
+
+</style>
+ </head>
+    <body onload="fun()" class="container" >
+		<div>
+		{% if error %}
+			<p class="error"><strong>Error:</strong> Please enter a valid {{ error }}
+		{% endif %}</div>
+		<div class="box">
+		
+		<label class="head"><h2>e-Pass Application Form</h2></label>
+		<form method="post" action="http://127.0.0.1:5000/login" onSubmit="validate()">
+			<table>
+				<tr>
+					<div class="centered">
+							<label><input type="text" name="fname" id="fname" text="HI" class="textfield" required><span class="placeholder">First Name</span></label>
+					</div>
+				</tr>
+				<tr>
+					<div class="centered">
+							<label><input type="text" name="lname" id="lname" class="textfield" required><span class="placeholder">Last Name</span></label>
+						</div>
+				</tr>
+				<tr>
+					<div class="centered">
+							<label><input type="text" name="email" id="email" class="textfield" required><span class="placeholder">Email Id</span></label>
+					</div>
+				</tr>
+				<tr>
+					<div class="centered">
+							<label><input type="text"  name="aadhar" id="aadhar" class="textfield" required><span class="placeholder">Aadhar Number</span></label>
+					</div>
+				</tr>
+				<tr>
+					<div class="centered">
+							<label><input type="text" name="contact" id="contact"  class="textfield" required><span class="placeholder">Contact Number</span></label>
+					</div>
+				</tr>
+				<tr>
+					<div class="centered">
+							<label><input type="text"  name="people" id="people" class="textfield" required><span class="placeholder">Number of People</span></label>
+					</div>
+				</tr>
+				<tr>
+					<td><label style="color:#566573;padding:10px">From:</label></td>
+					<td>
+					<select name="from" id="from" style="color:#566573;">
+							{% for state in states %}
+					<option value= "{{state}}" SELECTED>{{ state }}</option>"
+							{% endfor %}
+					</select>
+					</td>
+					<td><label style="color:#566573; padding:10px">To:</label></td>
+					<td>
+						<select name="to" id="to" style="color:#566573;">
+							{% for state in states %}
+					<option value= "{{state}}" SELECTED>{{ state }}</option>"
+							{% endfor %}
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="color:#566573; padding:10px">Date Of Journey:</td>
+					<td><input type="date" id="date" name="date" id="date" style="color:#566573;"></td>
+				</tr>
+
+			</table>
+
+			<input type="submit" value="Apply" class="center">
+		</form>
+		</div>
+    </body>
+</html>
+

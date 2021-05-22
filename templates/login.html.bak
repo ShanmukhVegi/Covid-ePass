@@ -1,0 +1,70 @@
+<html>
+    <head>
+
+<style>
+.container{background: linear-gradient(180deg, #00C9FF 0%, #92FE9D 100%);}
+.box{
+	width:32%;
+	height:70%;
+	margin:auto;
+	margin-top: 5%;
+	padding:35px;
+	background: white;
+	border-radius: 20px;
+	transition: padding 1s;
+	font-family:Candara;
+}
+.head{
+	display:block;
+	text-align:center;
+	width:100%;
+}
+
+
+</style>
+ </head>
+    <body class="container" >
+		<div class="box">
+			<h1><label class="head">Details:</label></h1>
+			<table align="center">
+				<tr>
+					<td><strong>First Name:</strong></td>
+					<td>{{fname}}</td>
+				</tr>
+				<tr>
+					<td><strong>Last Name:</strong></td>
+					<td>{{lname}}</td>
+				</tr>
+				<tr>
+					<td><strong>Contact:</strong></td>
+					<td>{{contact}}</td>
+				</tr>
+				<tr>
+					<td><strong>Aadhar:</strong></td>
+					<td>{{aadhar}}</td>
+				</tr>
+				<tr>
+					<td><strong>number of people:</strong></td>
+					<td>{{people}}</td>
+				</tr>
+				<tr>
+					<td><strong>From:</strong></td>
+					<td>{{frm}}</td>
+				</tr>
+				<tr>
+					<td><strong>To:</strong></td>
+					<td>{{to}}</td>
+				</tr>
+				<tr>
+					<td><strong>Date:</strong></td>
+					<td>{{date}}</td>
+				</tr>
+				<tr>
+					<td><strong>Status:</strong></td>
+					<td>{{status}}</td>
+				</tr>
+			</table>
+		</div>
+    </body>
+</html>
+
