@@ -70,7 +70,7 @@ def login():
 
 if __name__ == '__main__':
     account_sid="AC2f7622e3ccb65c200792bb96e2a137a0"
-    auth_token="c07110f6831a383479ae16a902397f8f"
+    auth_token="21a824e80ecc7d0b9954394cfd620ad1"
     client=Client(account_sid,auth_token)
     d = {"Andaman and Nicobar" : "AN", "Andhra Pradesh" : "AP","Arunachal Pradesh":"AR","Assam":"AS","Bihar":"BR","Chandigarh":"CH","Chhattisgarh":"CT","Daman and Diu":"DN","Delhi":"DL","Goa":"GA","Gujarat":"GJ","Himachal Pradesh":"HP","Haryana":"HR","Jharkhand":"JH","Jammu and Kashmir":"JK","Karnataka":"KA","Lakshadweep":"LD","Kerala":"KL","Maharashtra":"MH","Meghalaya":"ML","Madhya Pradesh":"MP","Manipur":"MN","Mizoram":"MZ","Nagaland":"NL","Odisha":"OR","Punjab":"PB","Puducherry":"PY","Rajasthan":"RJ","Sikkim":"SK","Telangana":"TG","Tamil Nadu":"TN","Tripura":"TR","Uttar Pradesh":"UP","Uttarakhand":"UT","West Bengal":"WB"}
     states=["Andaman and Nicobar", "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chandigarh","Chhattisgarh","Daman and Diu","Delhi","Goa","Gujarat","Himachal Pradesh","Haryana","Jharkhand","Jammu and Kashmir","Karnataka","Lakshadweep","Kerala","Maharashtra","Meghalaya","Madhya Pradesh","Manipur","Mizoram","Nagaland","Odisha","Punjab","Puducherry","Rajasthan","Sikkim","Telangana","Tamil Nadu","Tripura","Uttar Pradesh","Uttarakhand","West Bengal"]

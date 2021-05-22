@@ -19,7 +19,7 @@ if(error!=""){
 	else if(error=="last name"){document.getElementById("lname").style.background="yellow";}
 	else if(error=="contact"){document.getElementById("contact").style.background="yellow";}
 	else if(error=="email"){document.getElementById("email").style.background="yellow";}
-	else if(error=="aadhar"){document.getElementById("aadhar").style.background="yellow";}
+	else if(error=="aadhar number"){document.getElementById("aadhar").style.background="yellow";}
 	else if(error=="number of people"){document.getElementById("people").style.background="yellow";}
 }
 
