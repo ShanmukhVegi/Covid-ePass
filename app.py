@@ -70,7 +70,7 @@ def login():
             #r=requests.post(url,data)
             #k=client.messages.create(to="whatsapp:+918328180760",from_="whatsapp:+14155238886",body=bdy)
             #print(k.sid)
-            return render_template('login.html',fname=fname,lname=lname,email=email,aadhar=aadhar,contact=contact,people=people,frm=frm,to=to,date=date,status=status,key=key)
+            return render_template('login.html',otp=key,fname=fname,lname=lname,email=email,aadhar=aadhar,contact=contact,people=people,frm=frm,to=to,date=date,status=status,key=key)
     else:
         print("INSIDE GET")
 
