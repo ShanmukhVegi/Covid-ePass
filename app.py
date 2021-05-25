@@ -3,16 +3,12 @@ import requests
 import string
 import random
 import re
-import logging
-import sys
 
 from twilio.rest import Client
 app = Flask(__name__)
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
-account_sid="AC2f7622e3ccb65c200792bb96e2a137a0"
-auth_token="21a824e80ecc7d0b9954394cfd620ad1"
-client=Client(account_sid,auth_token)
+#account_sid="AC2f7622e3ccb65c200792bb96e2a137a0"
+#auth_token="21a824e80ecc7d0b9954394cfd620ad1"
+#client=Client(account_sid,auth_token)
 d = {"Andaman and Nicobar" : "AN", "Andhra Pradesh" : "AP","Arunachal Pradesh":"AR","Assam":"AS","Bihar":"BR","Chandigarh":"CH","Chhattisgarh":"CT","Daman and Diu":"DN","Delhi":"DL","Goa":"GA","Gujarat":"GJ","Himachal Pradesh":"HP","Haryana":"HR","Jharkhand":"JH","Jammu and Kashmir":"JK","Karnataka":"KA","Lakshadweep":"LD","Kerala":"KL","Maharashtra":"MH","Meghalaya":"ML","Madhya Pradesh":"MP","Manipur":"MN","Mizoram":"MZ","Nagaland":"NL","Odisha":"OR","Punjab":"PB","Puducherry":"PY","Rajasthan":"RJ","Sikkim":"SK","Telangana":"TG","Tamil Nadu":"TN","Tripura":"TR","Uttar Pradesh":"UP","Uttarakhand":"UT","West Bengal":"WB"}
 states=["Andaman and Nicobar", "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chandigarh","Chhattisgarh","Daman and Diu","Delhi","Goa","Gujarat","Himachal Pradesh","Haryana","Jharkhand","Jammu and Kashmir","Karnataka","Lakshadweep","Kerala","Maharashtra","Meghalaya","Madhya Pradesh","Manipur","Mizoram","Nagaland","Odisha","Punjab","Puducherry","Rajasthan","Sikkim","Telangana","Tamil Nadu","Tripura","Uttar Pradesh","Uttarakhand","West Bengal"]
     
@@ -58,7 +54,7 @@ def login():
             limit = (cnt/pop)*100
             print(limit)
             key=""
-            url="https://api.chat-api.com/instance274184/sendMessage?token=q3es5la26k4qekdj"
+            #url="https://api.chat-api.com/instance274184/sendMessage?token=q3es5la26k4qekdj"
             bdy=""
 
             if limit*100<30 and request.method=='POST':
@@ -70,9 +66,10 @@ def login():
                 status = "NOT CONFIRMED"
                 bdy='HELLO! '+fname+" "+lname+" your travel booking from "+frm+" to "+to+" is NOT confirmed"
                 data={"body":"hello "+fname+" "+lname+" your travel status from "+frm+" to "+to+" is NOT confirmed","phone":"91"+str(contact)}
-            r=requests.post(url,data)
-            k=client.messages.create(to="whatsapp:+918328180760",from_="whatsapp:+14155238886",body=bdy)
-            print(k.sid)
+            #To have whatsapp services a post request must be sent to chat-api provided if a valid subscription is there
+            #r=requests.post(url,data)
+            #k=client.messages.create(to="whatsapp:+918328180760",from_="whatsapp:+14155238886",body=bdy)
+            #print(k.sid)
             return render_template('login.html',fname=fname,lname=lname,email=email,aadhar=aadhar,contact=contact,people=people,frm=frm,to=to,date=date,status=status,key=key)
     else:
         print("INSIDE GET")
